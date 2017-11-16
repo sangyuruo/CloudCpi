@@ -1,0 +1,55 @@
+/** 
+* 采集点信息表 
+* @author Capejor
+*/
+entity ComPoint {
+/** 设备编码 外键 */
+comPointCode String maxlength(64) required,
+/** 登记代码 */
+registerCode Integer required,
+/** 登记名称 */
+registerName String maxlength(50),
+/** 地址编码 */
+addressCode String maxlength(64) required,
+/** 组织编码 */
+organizationCode String maxlength(64) required,
+/** 公司编码 */
+companyCode String maxlength(64) required,
+/** ip地址 */
+ip String maxlength(20) required,
+/** 服务器名称 */
+hostName String maxlength(30) required,
+/** 服务器端口 */
+hostPort Integer required,
+/** 请求超时时间 */
+requestTimeout Integer required,
+/** 响应超时时间 */
+replyTimeout Integer required,
+/** 是否有效 */
+enable Boolean required,
+/** 是否心跳 */ 
+keepAlive Boolean required,
+/** 链接模式 */
+connectMode Integer required,
+/** 创建人员 */
+createdBy String maxlength(20) required,
+/** 创建时间 */
+createTime Instant required,
+/** 更新人员 */
+updatedBy String maxlength(20) required,
+/** 更新时间 */
+updateTime Instant required
+}
+
+/** 
+* 采集点状态信息表 
+* @author Capejor
+*/
+entity ComPointStatus {
+/** 设备编码 外键 */
+comPointCode String maxlength(64) required,
+/** 通讯状态 */
+communicationStatus Integer required,
+/** 记录时间 */
+recordTime Instant required
+}
