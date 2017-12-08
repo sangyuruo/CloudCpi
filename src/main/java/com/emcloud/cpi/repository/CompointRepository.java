@@ -1,9 +1,11 @@
 package com.emcloud.cpi.repository;
 
 import com.emcloud.cpi.domain.Compoint;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
-
 import org.springframework.data.jpa.repository.*;
+import java.util.List;
 
 
 /**
@@ -12,5 +14,7 @@ import org.springframework.data.jpa.repository.*;
 @SuppressWarnings("unused")
 @Repository
 public interface CompointRepository extends JpaRepository<Compoint, Long> {
+    //Page<Compoint> findAllByCompointName(Pageable pageable);
+    List<Compoint> findAllByCompanyCode(String companyCode);
 
 }

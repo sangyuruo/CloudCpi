@@ -77,7 +77,7 @@ public class CompointResource {
         if (compoint.getId() == null) {
             return createCompoint(compoint);
         }
-        Compoint result = compointService.save(compoint);
+        Compoint result = compointService.update(compoint);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, compoint.getId().toString()))
             .body(result);
@@ -96,6 +96,21 @@ public class CompointResource {
         Page<Compoint> page = compointService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/compoints");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+
+    /**
+     * GET  /compoints : get all the compoints.
+     *
+     * @param companyCode the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of compoints in body
+     */
+    @GetMapping("/compoints/bycompanyCode")
+    @Timed
+    public List<Compoint> getAllCompany(@ApiParam String companyCode) {
+        log.debug("REST companyCode to get a page of Compoints");
+        List<Compoint> list = compointService.findAllCompany(companyCode);
+        return list;
     }
 
     /**

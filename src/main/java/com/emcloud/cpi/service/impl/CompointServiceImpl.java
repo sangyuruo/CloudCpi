@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.util.List;
 
 
 /**
@@ -71,6 +72,20 @@ public class CompointServiceImpl implements CompointService{
         log.debug("Request to get all Compoints");
         return compointRepository.findAll(pageable);
     }
+
+    /**
+     *  Get all the compoints.
+     *
+     *  @param companyCode the pagination information
+     *  @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<Compoint> findAllCompany(String companyCode) {
+        log.debug("Request to get all Companies");
+        return compointRepository.findAllByCompanyCode(companyCode);
+    }
+
 
     /**
      *  Get one compoint by id.

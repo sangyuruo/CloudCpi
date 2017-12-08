@@ -4,6 +4,8 @@ import com.emcloud.cpi.domain.Compoint;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * Service Interface for managing Compoint.
  */
@@ -32,6 +34,14 @@ public interface CompointService {
      *  @return the list of entities
      */
     Page<Compoint> findAll(Pageable pageable);
+
+    /**
+     *  Get all the companies.
+     *
+     *  @param companyCode the pagination information
+     *  @return the list of entities
+     */
+    List<Compoint> findAllCompany(String companyCode);
 
     /**
      *  Get the "id" compoint.
