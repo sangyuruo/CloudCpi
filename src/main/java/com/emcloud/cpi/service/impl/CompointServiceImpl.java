@@ -81,7 +81,7 @@ public class CompointServiceImpl implements CompointService{
      */
     @Override
     @Transactional(readOnly = true)
-    public List<Compoint> findAllCompany(String companyCode) {
+    public List<Compoint> findAllByCompanyCode(String companyCode) {
         log.debug("Request to get all Companies");
         return compointRepository.findAllByCompanyCode(companyCode);
     }

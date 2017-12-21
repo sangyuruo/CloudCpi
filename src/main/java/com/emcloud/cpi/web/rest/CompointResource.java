@@ -105,11 +105,11 @@ public class CompointResource {
      * @param companyCode the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of compoints in body
      */
-    @GetMapping("/compoints/bycompanyCode")
+    @GetMapping("/compoints/bycompanycode")
     @Timed
-    public List<Compoint> getAllCompany(@ApiParam String companyCode) {
+    public List<Compoint> getAllByCompanyCode(@ApiParam String companyCode) {
         log.debug("REST companyCode to get a page of Compoints");
-        List<Compoint> list = compointService.findAllCompany(companyCode);
+        List<Compoint> list = compointService.findAllByCompanyCode(companyCode);
         return list;
     }
 

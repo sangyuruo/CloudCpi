@@ -41,7 +41,7 @@ public interface CompointService {
      *  @param companyCode the pagination information
      *  @return the list of entities
      */
-    List<Compoint> findAllCompany(String companyCode);
+    List<Compoint> findAllByCompanyCode(String companyCode);
 
     /**
      *  Get the "id" compoint.

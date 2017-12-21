@@ -13,6 +13,7 @@ import java.util.Objects;
 
 /**
  * 采集点信息表
+ *
  * @author Capejor
  */
 @ApiModel(description = "采集点信息表 @author Capejor")
@@ -148,7 +149,6 @@ public class Compoint implements Serializable {
     /**
      * 创建人员
      */
-    @NotNull
     @Size(max = 20)
     @ApiModelProperty(value = "创建人员", required = true)
     @Column(name = "created_by", length = 20, nullable = false)
@@ -157,7 +157,6 @@ public class Compoint implements Serializable {
     /**
      * 创建时间
      */
-    @NotNull
     @ApiModelProperty(value = "创建时间", required = true)
     @Column(name = "create_time", nullable = false)
     private Instant createTime;
@@ -165,7 +164,6 @@ public class Compoint implements Serializable {
     /**
      * 更新人员
      */
-    @NotNull
     @Size(max = 20)
     @ApiModelProperty(value = "更新人员", required = true)
     @Column(name = "updated_by", length = 20, nullable = false)
@@ -174,7 +172,6 @@ public class Compoint implements Serializable {
     /**
      * 更新时间
      */
-    @NotNull
     @ApiModelProperty(value = "更新时间", required = true)
     @Column(name = "update_time", nullable = false)
     private Instant updateTime;

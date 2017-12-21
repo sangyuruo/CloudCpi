@@ -18,3 +18,4 @@ public interface CompointRepository extends JpaRepository<Compoint, Long> {
     List<Compoint> findAllByCompanyCode(String companyCode);
 
 }
+
