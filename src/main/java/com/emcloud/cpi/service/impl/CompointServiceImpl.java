@@ -112,7 +112,7 @@ public class CompointServiceImpl implements CompointService{
 
     @Override
     public Compoint findOne(String compointCode, String companyCode) {
-        return compointRepository.findByCompoint(compointCode,companyCode);
+        return compointRepository.findByComPointCodeAndCompanyCode(compointCode,companyCode);
     }
 
 

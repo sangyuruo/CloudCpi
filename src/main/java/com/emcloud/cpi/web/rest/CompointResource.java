@@ -104,10 +104,10 @@ public class CompointResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of compoints in body
      */
-    @GetMapping("/compoints")
+    @GetMapping("/compoint")
     @Timed
 
-    public List<Compoint> getAllCompoints() {
+    public List<Compoint> getCompoints() {
         log.debug("REST request to get a page of Compoints");
         List<Compoint> compointList = compointService.findAll();
 

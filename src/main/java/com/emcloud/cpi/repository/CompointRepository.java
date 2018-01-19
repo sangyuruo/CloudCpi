@@ -17,7 +17,7 @@ public interface CompointRepository extends JpaRepository<Compoint, Long> {
     //Page<Compoint> findAllByCompointName(Pageable pageable);
     List<Compoint> findAll();
     List<Compoint> findAllByCompanyCode(String companyCode);
-    Compoint findByCompoint(String  compointCode, String  companyCode);
+    Compoint findByComPointCodeAndCompanyCode(String  compointCode, String  companyCode);
     Compoint findByComPointCode(String  compointCode);
 
 }
