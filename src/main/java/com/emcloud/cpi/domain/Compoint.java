@@ -29,6 +29,11 @@ public class Compoint implements Serializable {
     private Long id;
 
     /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
      * 设备编码 外键
      */
     @NotNull
@@ -182,7 +187,17 @@ public class Compoint implements Serializable {
     @Column(name = "update_time", nullable = false)
     private Instant updateTime;
 
-    public Compoint(Boolean encapsulated) {
+    public Compoint encapsulated(Boolean encapsulated) {
+        this.encapsulated = encapsulated;
+        return  this;
+    }
+
+
+    public Boolean getEncapsulated() {
+        return encapsulated;
+    }
+
+    public void setEncapsulated(Boolean encapsulated) {
         this.encapsulated = encapsulated;
     }
 
@@ -475,11 +490,11 @@ public class Compoint implements Serializable {
             "}";
     }
 
-    public Boolean getEncapsulated() {
-        return encapsulated;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEncapsulated(Boolean encapsulated) {
-        this.encapsulated = encapsulated;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
