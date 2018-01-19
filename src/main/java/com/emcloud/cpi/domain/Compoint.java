@@ -182,8 +182,9 @@ public class Compoint implements Serializable {
     @Column(name = "update_time", nullable = false)
     private Instant updateTime;
 
-    public Compoint(Boolean encapsulated) {
+    public Compoint encapsulated(Boolean encapsulated) {
         this.encapsulated = encapsulated;
+        return this;
     }
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
