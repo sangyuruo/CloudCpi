@@ -137,7 +137,7 @@ public class CompointResourceIntTest {
      * if they test an entity which requires the current entity.
      */
     public static Compoint createEntity(EntityManager em) {
-        Compoint compoint = new Compoint()
+        Compoint compoint = new Compoint(encapsulated)
             .comPointCode(DEFAULT_COM_POINT_CODE)
             .registerCode(DEFAULT_REGISTER_CODE)
             .registerName(DEFAULT_REGISTER_NAME)
@@ -693,9 +693,9 @@ public class CompointResourceIntTest {
     @Transactional
     public void equalsVerifier() throws Exception {
         TestUtil.equalsVerifier(Compoint.class);
-        Compoint compoint1 = new Compoint();
+        Compoint compoint1 = new Compoint(encapsulated);
         compoint1.setId(1L);
-        Compoint compoint2 = new Compoint();
+        Compoint compoint2 = new Compoint(encapsulated);
         compoint2.setId(compoint1.getId());
         assertThat(compoint1).isEqualTo(compoint2);
         compoint2.setId(2L);

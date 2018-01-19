@@ -72,6 +72,16 @@ public class CompointServiceImpl implements CompointService{
         log.debug("Request to get all Compoints");
         return compointRepository.findAll(pageable);
     }
+    /**
+     *  Get all the compoints.
+     *
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public List<Compoint> findAll() {
+        log.debug("Request to get all Compoints");
+        return compointRepository.findAll();
+    }
 
     /**
      *  Get all the compoints.
@@ -98,6 +108,24 @@ public class CompointServiceImpl implements CompointService{
     public Compoint findOne(Long id) {
         log.debug("Request to get Compoint : {}", id);
         return compointRepository.findOne(id);
+    }
+
+    @Override
+    public Compoint findOne(String compointCode, String companyCode) {
+        return compointRepository.findByCompoint(compointCode,companyCode);
+    }
+
+
+    /**
+     *  Get one compoint by id.
+     *
+     *  @param compotinID the id of the entity
+     *  @return the entity
+     */
+    @Transactional(readOnly = true)
+    public Compoint findOne(String compotinID) {
+        log.debug("Request to get Compoint : {}", compotinID);
+        return compointRepository.findByComPointCode(compotinID);
     }
 
     /**

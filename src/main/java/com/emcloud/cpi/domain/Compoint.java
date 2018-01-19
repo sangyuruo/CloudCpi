@@ -147,6 +147,12 @@ public class Compoint implements Serializable {
     private Integer connectMode;
 
     /**
+     * 是否包装
+     */
+    @ApiModelProperty(value = "是否包装", required = true)
+    @Column(name = "encapsulated", nullable = false)
+    private Boolean encapsulated;
+    /**
      * 创建人员
      */
     @Size(max = 20)
@@ -175,6 +181,10 @@ public class Compoint implements Serializable {
     @ApiModelProperty(value = "更新时间", required = true)
     @Column(name = "update_time", nullable = false)
     private Instant updateTime;
+
+    public Compoint(Boolean encapsulated) {
+        this.encapsulated = encapsulated;
+    }
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -463,5 +473,13 @@ public class Compoint implements Serializable {
             ", updatedBy='" + getUpdatedBy() + "'" +
             ", updateTime='" + getUpdateTime() + "'" +
             "}";
+    }
+
+    public Boolean getEncapsulated() {
+        return encapsulated;
+    }
+
+    public void setEncapsulated(Boolean encapsulated) {
+        this.encapsulated = encapsulated;
     }
 }

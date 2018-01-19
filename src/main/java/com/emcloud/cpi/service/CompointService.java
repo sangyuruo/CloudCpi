@@ -36,6 +36,14 @@ public interface CompointService {
     Page<Compoint> findAll(Pageable pageable);
 
     /**
+     *  Get all the compoints.
+     *
+     *  @return the list of entities
+     */
+    List<Compoint> findAll();
+
+
+    /**
      *  Get all the companies.
      *
      *  @param companyCode the pagination information
@@ -50,6 +58,20 @@ public interface CompointService {
      *  @return the entity
      */
     Compoint findOne(Long id);
+
+    /**
+     *
+     *  @return the entity
+     */
+    Compoint findOne(String  compointCode ,String companyCode);
+
+    /**
+     *  Get the "id" compoint.
+     *
+     *  @param compointCode the id of the entity
+     *  @return the entity
+     */
+    Compoint findOne(String  compointCode);
 
     /**
      *  Delete the "id" compoint.

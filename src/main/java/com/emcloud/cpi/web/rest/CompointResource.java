@@ -8,6 +8,7 @@ import com.emcloud.cpi.web.rest.util.HeaderUtil;
 import com.emcloud.cpi.web.rest.util.PaginationUtil;
 import io.swagger.annotations.ApiParam;
 import io.github.jhipster.web.util.ResponseUtil;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -98,6 +99,22 @@ public class CompointResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
+    /**
+     * GET  /compoints : get all the compoints.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of compoints in body
+     */
+    @GetMapping("/compoints")
+    @Timed
+
+    public List<Compoint> getAllCompoints() {
+        log.debug("REST request to get a page of Compoints");
+        List<Compoint> compointList = compointService.findAll();
+
+        return compointList;
+    }
+
+
 
     /**
      * GET  /compoints : get all the compoints.
@@ -105,7 +122,7 @@ public class CompointResource {
      * @param companyCode the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of compoints in body
      */
-    @GetMapping("/compoints/bycompanycode")
+    @GetMapping("/compoints/{companycode}")
     @Timed
     public List<Compoint> getAllByCompanyCode(@ApiParam String companyCode) {
         log.debug("REST companyCode to get a page of Compoints");
@@ -115,6 +132,7 @@ public class CompointResource {
 
     /**
      * GET  /compoints/:id : get the "id" compoint.
+     *
      *
      * @param id the id of the compoint to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the compoint, or with status 404 (Not Found)
@@ -126,6 +144,35 @@ public class CompointResource {
         Compoint compoint = compointService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(compoint));
     }
+    /**
+     * GET  /compoints/:id : get the "id" compoint.
+     *
+     * @param compointCode the id of the compoint to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the compoint, or with status 404 (Not Found)
+     */
+    @GetMapping("/compoints/{compointcode}")
+    @Timed
+    public ResponseEntity<Compoint> getCompoint(@PathVariable String compointCode) {
+
+        Compoint compoint = compointService.findOne(compointCode);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(compoint));
+    }
+
+
+    /**
+     * GET  /compoints/:id : get the "id" compoint.
+     *
+     * @param compointCode the id of the compoint to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the compoint, or with status 404 (Not Found)
+     */
+    @GetMapping("/compoints/{compointcode}/{companycode}")
+    @Timed
+    public ResponseEntity<Compoint> getCompoint(@PathVariable String compointCode,@PathVariable String companyCode) {
+
+        Compoint compoint = compointService.findOne(compointCode,companyCode);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(compoint));
+    }
+
 
     /**
      * DELETE  /compoints/:id : delete the "id" compoint.
