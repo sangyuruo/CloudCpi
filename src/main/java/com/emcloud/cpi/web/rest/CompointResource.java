@@ -121,7 +121,7 @@ public class CompointResource {
      * @param companyCode the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of compoints in body
      */
-    @GetMapping("/compoints/{companycode}")
+    @GetMapping("/compoint/by-companycode/{companycode}")
     @Timed
     public List<Compoint> getAllByCompanyCode(@PathVariable(value ="companycode") String companyCode) {
         log.debug("REST companyCode to get a page of Compoints");
@@ -149,7 +149,7 @@ public class CompointResource {
      * @param compointCode the id of the compoint to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the compoint, or with status 404 (Not Found)
      */
-    @GetMapping("/compoints/{compointcode}")
+    @GetMapping("/compoint/by-cpicode/{compointcode}")
     @Timed
     public ResponseEntity<Compoint> getCompoint(@PathVariable(value="compointcode") String compointCode) {
 
@@ -164,7 +164,7 @@ public class CompointResource {
      * @param compointCode the id of the compoint to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the compoint, or with status 404 (Not Found)
      */
-    @GetMapping("/compoints/{compointcode}/{companycode}")
+    @GetMapping("/compoint/by-cpicode-companycode/{compointcode}/{companycode}")
     @Timed
     public ResponseEntity<Compoint> getCompoint(@PathVariable(value="compointcode") String compointCode,
                                                 @PathVariable(value="companycode") String companyCode) {
