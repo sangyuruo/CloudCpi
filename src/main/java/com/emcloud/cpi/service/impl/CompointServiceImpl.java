@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -43,6 +44,7 @@ public class CompointServiceImpl implements CompointService{
         compoint.setCreateTime(Instant.now());
         compoint.setUpdatedBy(SecurityUtils.getCurrentUserLogin());
         compoint.setUpdateTime(Instant.now());
+        compoint.setComPointCode(UUID.randomUUID().toString());
         return compointRepository.save(compoint);
     }
 

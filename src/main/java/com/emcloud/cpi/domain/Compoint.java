@@ -188,7 +188,6 @@ public class Compoint implements Serializable {
     private Instant updateTime;
 
     public Compoint encapsulated(Boolean encapsulated) {
-<<<<<<< HEAD
         this.encapsulated = encapsulated;
         return  this;
     }
@@ -199,10 +198,7 @@ public class Compoint implements Serializable {
     }
 
     public void setEncapsulated(Boolean encapsulated) {
-=======
->>>>>>> 59f3ffca2801056981993bd1a17f6035a9395fc6
         this.encapsulated = encapsulated;
-        return this;
     }
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

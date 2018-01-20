@@ -8,7 +8,6 @@ import com.emcloud.cpi.web.rest.util.HeaderUtil;
 import com.emcloud.cpi.web.rest.util.PaginationUtil;
 import io.swagger.annotations.ApiParam;
 import io.github.jhipster.web.util.ResponseUtil;
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -124,7 +123,7 @@ public class CompointResource {
      */
     @GetMapping("/compoints/{companycode}")
     @Timed
-    public List<Compoint> getAllByCompanyCode(@ApiParam String companyCode) {
+    public List<Compoint> getAllByCompanyCode(@PathVariable(value ="companycode") String companyCode) {
         log.debug("REST companyCode to get a page of Compoints");
         List<Compoint> list = compointService.findAllByCompanyCode(companyCode);
         return list;
@@ -139,7 +138,7 @@ public class CompointResource {
      */
     @GetMapping("/compoints/{id}")
     @Timed
-    public ResponseEntity<Compoint> getCompoint(@PathVariable Long id) {
+    public ResponseEntity<Compoint> getCompoint(@PathVariable(value ="id") Long id) {
         log.debug("REST request to get Compoint : {}", id);
         Compoint compoint = compointService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(compoint));
@@ -152,7 +151,7 @@ public class CompointResource {
      */
     @GetMapping("/compoints/{compointcode}")
     @Timed
-    public ResponseEntity<Compoint> getCompoint(@PathVariable String compointCode) {
+    public ResponseEntity<Compoint> getCompoint(@PathVariable(value="compointcode") String compointCode) {
 
         Compoint compoint = compointService.findOne(compointCode);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(compoint));
@@ -167,7 +166,8 @@ public class CompointResource {
      */
     @GetMapping("/compoints/{compointcode}/{companycode}")
     @Timed
-    public ResponseEntity<Compoint> getCompoint(@PathVariable String compointCode,@PathVariable String companyCode) {
+    public ResponseEntity<Compoint> getCompoint(@PathVariable(value="compointcode") String compointCode,
+                                                @PathVariable(value="companycode") String companyCode) {
 
         Compoint compoint = compointService.findOne(compointCode,companyCode);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(compoint));
@@ -182,7 +182,7 @@ public class CompointResource {
      */
     @DeleteMapping("/compoints/{id}")
     @Timed
-    public ResponseEntity<Void> deleteCompoint(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteCompoint(@PathVariable(value="id") Long id) {
         log.debug("REST request to delete Compoint : {}", id);
         compointService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
