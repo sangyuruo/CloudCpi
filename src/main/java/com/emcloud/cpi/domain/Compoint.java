@@ -68,6 +68,14 @@ public class Compoint implements Serializable {
     private String addressCode;
 
     /**
+     * 地址名称
+     */
+    @Size(max = 64)
+    @ApiModelProperty(value = "地址名称", required = true)
+    @Column(name = "address_name", length = 200, nullable = false)
+    private String addressName;
+
+    /**
      * 组织编码
      */
     @NotNull
@@ -75,15 +83,26 @@ public class Compoint implements Serializable {
     @ApiModelProperty(value = "组织编码", required = true)
     @Column(name = "organization_code", length = 64, nullable = false)
     private String organizationCode;
+    /**
+     * 组织名称
+     */
+    @Size(max = 64)
+    @ApiModelProperty(value = "组织名称", required = true)
+    private String organizationName;
 
     /**
      * 公司编码
      */
-    @NotNull
     @Size(max = 64)
     @ApiModelProperty(value = "公司编码", required = true)
     @Column(name = "company_code", length = 64, nullable = false)
     private String companyCode;
+    /**
+     * 公司名称
+     */
+    @Size(max = 200)
+    @ApiModelProperty(value = "公司名称", required = true)
+    private String companyName;
 
     /**
      * ip地址
@@ -150,6 +169,11 @@ public class Compoint implements Serializable {
     @ApiModelProperty(value = "链接模式", required = true)
     @Column(name = "connect_mode", nullable = false)
     private Integer connectMode;
+    /**
+     * 链接模式名称
+     */
+    @ApiModelProperty(value = "链接模式名称", required = true)
+    private String dictName;
 
     /**
      * 是否包装
@@ -186,6 +210,13 @@ public class Compoint implements Serializable {
     @ApiModelProperty(value = "更新时间", required = true)
     @Column(name = "update_time", nullable = false)
     private Instant updateTime;
+
+    public Compoint(String addressCode, String addressName, String organizationCode, String companyCode) {
+        this.addressCode = addressCode;
+        this.addressName = addressName;
+        this.organizationCode = organizationCode;
+        this.companyCode = companyCode;
+    }
 
     public Compoint encapsulated(Boolean encapsulated) {
         this.encapsulated = encapsulated;
@@ -496,5 +527,37 @@ public class Compoint implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getOrganizationName() {
+        return organizationName;
+    }
+
+    public void setOrganizationName(String organizationName) {
+        this.organizationName = organizationName;
+    }
+
+    public String getAddressName() {
+        return addressName;
+    }
+
+    public void setAddressName(String addressName) {
+        this.addressName = addressName;
+    }
+
+    public String getDictName() {
+        return dictName;
+    }
+
+    public void setDictName(String dictName) {
+        this.dictName = dictName;
     }
 }
