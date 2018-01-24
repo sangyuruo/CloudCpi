@@ -178,8 +178,8 @@ public class Compoint implements Serializable {
      * 链接模式名称
      */
     @ApiModelProperty(value = "链接模式名称", required = true)
-    @Column(name = "dict_classify_value",  length = 100,nullable = false)
-    private String dictName;
+    @Column(name = "connect_mode_name",  length = 100,nullable = false)
+    private String connectModeName;
 
     /**
      * 是否包装
@@ -217,11 +217,12 @@ public class Compoint implements Serializable {
     @Column(name = "update_time", nullable = false)
     private Instant updateTime;
 
-    public Compoint(String addressCode, String addressName, String organizationCode, String companyCode) {
+    public Compoint(String addressCode, String addressName, String organizationCode, String companyCode, String connectModeName) {
         this.addressCode = addressCode;
         this.addressName = addressName;
         this.organizationCode = organizationCode;
         this.companyCode = companyCode;
+        this.connectModeName = connectModeName;
     }
 
     public Compoint encapsulated(Boolean encapsulated) {
@@ -559,11 +560,11 @@ public class Compoint implements Serializable {
         this.addressName = addressName;
     }
 
-    public String getDictName() {
-        return dictName;
+    public String getConnectModeName() {
+        return connectModeName;
     }
 
-    public void setDictName(String dictName) {
-        this.dictName = dictName;
+    public void setConnectModeName(String connectModeName) {
+        this.connectModeName = connectModeName;
     }
 }

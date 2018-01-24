@@ -166,7 +166,7 @@
             ]
         },
         {
-            "fieldName": "dictClassifyValue",
+            "fieldName": "connect_mode_name",
             "javadoc": "链接模式名称",
             "fieldType": "String",
             "fieldValidateRules": [
