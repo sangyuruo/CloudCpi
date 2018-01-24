@@ -38,11 +38,21 @@
                 <constraints nullable="false" />
             </column>
 
+            <column name="address_name" type="varchar(40)">
+                <constraints nullable="false" />
+            </column>
+
             <column name="organization_code" type="varchar(64)">
+                <constraints nullable="false" />
+            </column>
+            <column name="organization_name" type="varchar(200)">
                 <constraints nullable="false" />
             </column>
 
             <column name="company_code" type="varchar(64)">
+                <constraints nullable="false" />
+            </column>
+            <column name="company_name" type="varchar(100)">
                 <constraints nullable="false" />
             </column>
 
@@ -74,9 +84,18 @@
                 <constraints nullable="false" />
             </column>
 
+            <column name="encapsulated" type="bit">
+                <constraints nullable="false" />
+            </column>
+
             <column name="connect_mode" type="integer">
                 <constraints nullable="false" />
             </column>
+
+            <column name="dict_classify_value" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+
 
             <column name="created_by" type="varchar(20)">
                 <constraints nullable="false" />

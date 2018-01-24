@@ -40,6 +40,16 @@
             "fieldValidateRulesMaxlength": 64
         },
         {
+            "fieldName": "addressName",
+            "javadoc": "地址名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
             "fieldName": "organizationCode",
             "javadoc": "组织编码",
             "fieldType": "String",
@@ -50,6 +60,16 @@
             "fieldValidateRulesMaxlength": 64
         },
         {
+            "fieldName": "organizationName",
+            "javadoc": "组织名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 40
+        },
+        {
             "fieldName": "companyCode",
             "javadoc": "公司编码",
             "fieldType": "String",
@@ -58,6 +78,16 @@
                 "required"
             ],
             "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "companyName",
+            "javadoc": "公司名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 100
         },
         {
             "fieldName": "ip",
@@ -120,12 +150,29 @@
             ]
         },
         {
+            "fieldName": "encapsulated",
+            "javadoc": "是否包装",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
             "fieldName": "connectMode",
             "javadoc": "链接模式",
             "fieldType": "Integer",
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "dictClassifyValue",
+            "javadoc": "链接模式名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 100
         },
         {
             "fieldName": "createdBy",

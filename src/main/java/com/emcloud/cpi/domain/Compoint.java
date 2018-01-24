@@ -82,12 +82,15 @@ public class Compoint implements Serializable {
     @Size(max = 64)
     @ApiModelProperty(value = "组织编码", required = true)
     @Column(name = "organization_code", length = 64, nullable = false)
+
     private String organizationCode;
     /**
      * 组织名称
      */
     @Size(max = 64)
     @ApiModelProperty(value = "组织名称", required = true)
+
+    @Column(name = "organization_name", length = 40, nullable = false)
     private String organizationName;
 
     /**
@@ -102,6 +105,8 @@ public class Compoint implements Serializable {
      */
     @Size(max = 200)
     @ApiModelProperty(value = "公司名称", required = true)
+
+    @Column(name = "company_name", length = 100, nullable = false)
     private String companyName;
 
     /**
@@ -173,6 +178,7 @@ public class Compoint implements Serializable {
      * 链接模式名称
      */
     @ApiModelProperty(value = "链接模式名称", required = true)
+    @Column(name = "dict_classify_value",  length = 100,nullable = false)
     private String dictName;
 
     /**

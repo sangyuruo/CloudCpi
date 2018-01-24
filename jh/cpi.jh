@@ -1,5 +1,5 @@
-/** 
-* 采集点信息表 
+/**
+* 采集点信息表
 * @author Capejor
 */
 entity ComPoint {
@@ -11,10 +11,16 @@ registerCode Integer required,
 registerName String maxlength(50),
 /** 地址编码 */
 addressCode String maxlength(64) required,
+/** 地址名称*/
+addressName String maxlength(200) ,
 /** 组织编码 */
 organizationCode String maxlength(64) required,
+/** 组织名称 */
+organizationName String maxlength(40) ,
 /** 公司编码 */
 companyCode String maxlength(64) required,
+/** 公司名称 */
+companyName String maxlength(100) ,
 /** ip地址 */
 ip String maxlength(20) required,
 /** 服务器名称 */
@@ -27,10 +33,16 @@ requestTimeout Integer required,
 replyTimeout Integer required,
 /** 是否有效 */
 enable Boolean required,
-/** 是否心跳 */ 
+/** 是否包装 */
+encapsulated Boolean ,
+/** 是否心跳 */
 keepAlive Boolean required,
 /** 链接模式 */
 connectMode Integer required,
+/** 链接模式名称 */
+dictClassifyValue String ,
+
+
 /** 创建人员 */
 createdBy String maxlength(20) required,
 /** 创建时间 */
@@ -41,8 +53,8 @@ updatedBy String maxlength(20) required,
 updateTime Instant required
 }
 
-/** 
-* 采集点状态信息表 
+/**
+* 采集点状态信息表
 * @author Capejor
 */
 entity ComPointStatus {
