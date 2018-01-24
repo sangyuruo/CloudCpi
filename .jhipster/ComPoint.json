@@ -166,7 +166,7 @@
             ]
         },
         {
-            "fieldName": "connect_mode_name",
+            "fieldName": "connectModeName",
             "javadoc": "链接模式名称",
             "fieldType": "String",
             "fieldValidateRules": [

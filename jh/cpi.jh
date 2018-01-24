@@ -40,7 +40,7 @@ keepAlive Boolean required,
 /** 链接模式 */
 connectMode Integer required,
 /** 链接模式名称 */
-connect_mode_name String ,
+connectModeName String ,
 
 
 /** 创建人员 */
