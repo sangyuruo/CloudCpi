@@ -41,7 +41,8 @@ keepAlive Boolean required,
 connectMode Integer required,
 /** 链接模式名称 */
 connectModeName String ,
-
+/** 邮箱 */
+email String,
 
 /** 创建人员 */
 createdBy String maxlength(20) required,

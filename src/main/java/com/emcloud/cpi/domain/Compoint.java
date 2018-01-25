@@ -28,10 +28,6 @@ public class Compoint implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /**
-     * 邮箱
-     */
-    private String email;
 
     /**
      * 设备编码 外键
@@ -41,7 +37,6 @@ public class Compoint implements Serializable {
     @ApiModelProperty(value = "设备编码 外键", required = true)
     @Column(name = "com_point_code", length = 64, nullable = false)
     private String comPointCode;
-
     /**
      * 登记代码
      */
@@ -119,6 +114,13 @@ public class Compoint implements Serializable {
     private String ip;
 
     /**
+     * 邮箱
+     */
+    @Size(max = 20)
+    @ApiModelProperty(value = "邮箱", required = true)
+    @Column(name = "email", length = 20, nullable = false)
+    private String email;
+    /**
      * 服务器名称
      */
     @NotNull
@@ -178,7 +180,7 @@ public class Compoint implements Serializable {
      * 链接模式名称
      */
     @ApiModelProperty(value = "链接模式名称", required = true)
-    @Column(name = "connect_mode_name",  length = 100,nullable = false)
+    @Column(name = "connect_mode_name", length = 100, nullable = false)
     private String connectModeName;
 
     /**
@@ -217,19 +219,12 @@ public class Compoint implements Serializable {
     @Column(name = "update_time", nullable = false)
     private Instant updateTime;
 
-    public Compoint(String addressCode, String addressName, String organizationCode, String companyCode, String connectModeName) {
-        this.addressCode = addressCode;
-        this.addressName = addressName;
-        this.organizationCode = organizationCode;
-        this.companyCode = companyCode;
-        this.connectModeName = connectModeName;
-    }
+
 
     public Compoint encapsulated(Boolean encapsulated) {
         this.encapsulated = encapsulated;
-        return  this;
+        return this;
     }
-
 
     public Boolean getEncapsulated() {
         return encapsulated;
@@ -527,7 +522,10 @@ public class Compoint implements Serializable {
             ", updateTime='" + getUpdateTime() + "'" +
             "}";
     }
-
+    public Compoint email(String email) {
+        this.email = email;
+        return this;
+    }
     public String getEmail() {
         return email;
     }
@@ -535,7 +533,10 @@ public class Compoint implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    public Compoint companyName(String companyName) {
+        this.companyName = companyName;
+        return this;
+    }
     public String getCompanyName() {
         return companyName;
     }
@@ -543,7 +544,10 @@ public class Compoint implements Serializable {
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
-
+    public Compoint organizationName(String organizationName) {
+        this.organizationName = organizationName;
+        return this;
+    }
     public String getOrganizationName() {
         return organizationName;
     }
@@ -551,7 +555,10 @@ public class Compoint implements Serializable {
     public void setOrganizationName(String organizationName) {
         this.organizationName = organizationName;
     }
-
+    public Compoint addressName(String addressName) {
+        this.addressName = addressName;
+        return this;
+    }
     public String getAddressName() {
         return addressName;
     }
@@ -560,6 +567,10 @@ public class Compoint implements Serializable {
         this.addressName = addressName;
     }
 
+    public Compoint connectModeName(String connectModeName) {
+        this.connectModeName = connectModeName;
+        return this;
+    }
     public String getConnectModeName() {
         return connectModeName;
     }

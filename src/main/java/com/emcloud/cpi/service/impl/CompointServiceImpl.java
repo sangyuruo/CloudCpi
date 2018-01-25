@@ -45,6 +45,8 @@ public class CompointServiceImpl implements CompointService{
         compoint.setUpdatedBy(SecurityUtils.getCurrentUserLogin());
         compoint.setUpdateTime(Instant.now());
         compoint.setComPointCode(UUID.randomUUID().toString());
+        compoint.setEncapsulated(false);
+        compoint.setEmail(SecurityUtils.getCurrentUserLogin());
         return compointRepository.save(compoint);
     }
 
