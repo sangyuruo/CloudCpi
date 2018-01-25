@@ -38,6 +38,14 @@ public interface CompointService {
     /**
      *  Get all the compoints.
      *
+     *  @param registerName the pagination information
+     *  @return the list of entities
+     */
+    List<Compoint> findByRegisterName(String registerName);
+
+    /**
+     *  Get all the compoints.
+     *
      *  @return the list of entities
      */
     List<Compoint> findAll();

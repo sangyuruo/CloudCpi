@@ -130,6 +130,20 @@ public class CompointResource {
     }
 
     /**
+     * GET  /compoints : get all the compoints.
+     *
+     * @param registerName the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of compoints in body
+     */
+    @GetMapping("/compoint/by-register-name")
+    public List<Compoint> getAllByMeterType
+        (@RequestParam(value = "registerName") String registerName ) {
+        log.debug("REST registerName to get a page of Compoint");
+        List<Compoint> list = compointService.findByRegisterName(registerName);
+        return list;
+    }
+
+    /**
      * GET  /compoints/:id : get the "id" compoint.
      *
      *

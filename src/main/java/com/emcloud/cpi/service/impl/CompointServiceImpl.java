@@ -100,6 +100,18 @@ public class CompointServiceImpl implements CompointService{
         return compointRepository.findAllByCompanyCode(companyCode);
     }
 
+    /**
+     *  Get all the compoints.
+     *
+     *  @param registerName the pagination information
+     *  @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<Compoint> findByRegisterName(String registerName){
+        log.debug("Request to get all Compoint by registerName");
+        return compointRepository.findByRegisterName(registerName);
+    }
 
     /**
      *  Get one compoint by id.
