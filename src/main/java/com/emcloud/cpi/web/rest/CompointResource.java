@@ -129,19 +129,19 @@ public class CompointResource {
         return list;
     }
 
-    /**
-     * GET  /compoints : get all the compoints.
-     *
-     * @param registerName the pagination information
-     * @return the ResponseEntity with status 200 (OK) and the list of compoints in body
-     */
-    @GetMapping("/compoint/by-register-name")
-    public List<Compoint> getAllByMeterType
-        (@RequestParam(value = "registerName") String registerName ) {
-        log.debug("REST registerName to get a page of Compoint");
-        List<Compoint> list = compointService.findByRegisterName(registerName);
-        return list;
-    }
+//    /**
+//     * GET  /compoints : get all the compoints.
+//     *
+//     * @param registerName the pagination information
+//     * @return the ResponseEntity with status 200 (OK) and the list of compoints in body
+//     */
+//    @GetMapping("/compoint/by-register-name")
+//    public List<Compoint> getAllByMeterType
+//        (@RequestParam(value = "registerName") String registerName ) {
+//        log.debug("REST registerName to get a page of Compoint");
+//        List<Compoint> list = compointService.findByRegisterName(registerName);
+//        return list;
+//    }
 
     /**
      * GET  /compoints/:id : get the "id" compoint.
@@ -157,19 +157,19 @@ public class CompointResource {
         Compoint compoint = compointService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(compoint));
     }
-    /**
-     * GET  /compoints/:id : get the "id" compoint.
-     *
-     * @param compointCode the id of the compoint to retrieve
-     * @return the ResponseEntity with status 200 (OK) and with body the compoint, or with status 404 (Not Found)
-     */
-    @GetMapping("/compoint/by-cpicode/{compointcode}")
-    @Timed
-    public ResponseEntity<Compoint> getCompoint(@PathVariable(value="compointcode") String compointCode) {
-
-        Compoint compoint = compointService.findOne(compointCode);
-        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(compoint));
-    }
+//    /**
+//     * GET  /compoints/:id : get the "id" compoint.
+//     *
+//     * @param compointCode the id of the compoint to retrieve
+//     * @return the ResponseEntity with status 200 (OK) and with body the compoint, or with status 404 (Not Found)
+//     */
+//    @GetMapping("/compoint/by-cpicode/{compointcode}")
+//    @Timed
+//    public ResponseEntity<Compoint> getCompoint(@PathVariable(value="compointcode") String compointCode) {
+//
+//        Compoint compoint = compointService.findOne(compointCode);
+//        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(compoint));
+//    }
 
 
     /**

@@ -100,18 +100,18 @@ public class CompointServiceImpl implements CompointService{
         return compointRepository.findAllByCompanyCode(companyCode);
     }
 
-    /**
-     *  Get all the compoints.
-     *
-     *  @param registerName the pagination information
-     *  @return the list of entities
-     */
-    @Override
-    @Transactional(readOnly = true)
-    public List<Compoint> findByRegisterName(String registerName){
-        log.debug("Request to get all Compoint by registerName");
-        return compointRepository.findByRegisterName(registerName);
-    }
+//    /**
+//     *  Get all the compoints.
+//     *
+//     *  @param registerName the pagination information
+//     *  @return the list of entities
+//     */
+//    @Override
+//    @Transactional(readOnly = true)
+//    public List<Compoint> findByRegisterName(String registerName){
+//        log.debug("Request to get all Compoint by registerName");
+//        return compointRepository.findByRegisterName(registerName);
+//    }
 
     /**
      *  Get one compoint by id.
@@ -132,17 +132,17 @@ public class CompointServiceImpl implements CompointService{
     }
 
 
-    /**
-     *  Get one compoint by id.
-     *
-     *  @param compotinID the id of the entity
-     *  @return the entity
-     */
-    @Transactional(readOnly = true)
-    public Compoint findOne(String compotinID) {
-        log.debug("Request to get Compoint : {}", compotinID);
-        return compointRepository.findByComPointCode(compotinID);
-    }
+//    /**
+//     *  Get one compoint by id.
+//     *
+//     *  @param compotinID the id of the entity
+//     *  @return the entity
+//     */
+//    @Transactional(readOnly = true)
+//    public Compoint findOne(String compotinID) {
+//        log.debug("Request to get Compoint : {}", compotinID);
+//        return compointRepository.findByComPointCode(compotinID);
+//    }
 
     /**
      *  Delete the  compoint by id.

@@ -35,13 +35,13 @@ public interface CompointService {
      */
     Page<Compoint> findAll(Pageable pageable);
 
-    /**
-     *  Get all the compoints.
-     *
-     *  @param registerName the pagination information
-     *  @return the list of entities
-     */
-    List<Compoint> findByRegisterName(String registerName);
+//    /**
+//     *  Get all the compoints.
+//     *
+//     *  @param registerName the pagination information
+//     *  @return the list of entities
+//     */
+//    List<Compoint> findByRegisterName(String registerName);
 
     /**
      *  Get all the compoints.
@@ -73,13 +73,13 @@ public interface CompointService {
      */
     Compoint findOne(String  compointCode ,String companyCode);
 
-    /**
-     *  Get the "id" compoint.
-     *
-     *  @param compointCode the id of the entity
-     *  @return the entity
-     */
-    Compoint findOne(String  compointCode);
+//    /**
+//     *  Get the "id" compoint.
+//     *
+//     *  @param compointCode the id of the entity
+//     *  @return the entity
+//     */
+//    Compoint findOne(String  compointCode);
 
     /**
      *  Delete the "id" compoint.

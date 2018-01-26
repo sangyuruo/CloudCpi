@@ -32,7 +32,6 @@ public class Compoint implements Serializable {
     /**
      * 设备编码 外键
      */
-    @NotNull
     @Size(max = 64)
     @ApiModelProperty(value = "设备编码 外键", required = true)
     @Column(name = "com_point_code", length = 64, nullable = false)
@@ -172,16 +171,17 @@ public class Compoint implements Serializable {
     /**
      * 链接模式
      */
-    @NotNull
     @ApiModelProperty(value = "链接模式", required = true)
     @Column(name = "connect_mode", nullable = false)
     private Integer connectMode;
     /**
      * 链接模式名称
      */
+    @NotNull
     @ApiModelProperty(value = "链接模式名称", required = true)
     @Column(name = "connect_mode_name", length = 100, nullable = false)
-    private String connectModeName;
+//    private String connectModeName;
+      private String dictClassifyValue;
 
     /**
      * 是否包装
@@ -567,15 +567,27 @@ public class Compoint implements Serializable {
         this.addressName = addressName;
     }
 
-    public Compoint connectModeName(String connectModeName) {
-        this.connectModeName = connectModeName;
+    public Compoint dictClassifyValue(String dictClassifyValue) {
+        this.dictClassifyValue = dictClassifyValue;
         return this;
     }
-    public String getConnectModeName() {
-        return connectModeName;
+    public String getDictClassifyValue() {
+        return dictClassifyValue;
     }
 
-    public void setConnectModeName(String connectModeName) {
-        this.connectModeName = connectModeName;
+    public void setDictClassifyValue(String dictClassifyValue) {
+        this.dictClassifyValue = dictClassifyValue;
     }
+
+//    public Compoint connectModeName(String connectModeName) {
+//        this.connectModeName = connectModeName;
+//        return this;
+//    }
+//    public String getConnectModeName() {
+//        return connectModeName;
+//    }
+//
+//    public void setConnectModeName(String connectModeName) {
+//        this.connectModeName = connectModeName;
+//    }
 }
