@@ -55,13 +55,7 @@
                                  constraintName="fk_evt_pers_audit_evt_data"
                                  referencedColumnNames="event_id"
                                  referencedTableName="jhi_persistent_audit_event"/>
-        <loadData encoding="UTF-8"
-                  file="config/liquibase/com_point.csv"
-                  separator=";"
-                  tableName="com_point">
-            <!--<column name="activated" type="boolean"/>
-            <column name="created_date" type="timestamp"/>-->
-        </loadData>
+
 
     </changeSet>
 </databaseChangeLog>

@@ -39,21 +39,21 @@
             </column>
 
             <column name="address_name" type="varchar(40)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
 
             <column name="organization_code" type="varchar(64)">
                 <constraints nullable="false" />
             </column>
             <column name="organization_name" type="varchar(200)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
 
             <column name="company_code" type="varchar(64)">
                 <constraints nullable="false" />
             </column>
             <column name="company_name" type="varchar(100)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
 
             <column name="ip" type="varchar(20)">
@@ -76,24 +76,24 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="jhi_enable" type="bit">
+            <column name="jhi_enable" type="integer" defaultValue="1">
                 <constraints nullable="false" />
             </column>
 
-            <column name="keep_alive" type="bit">
+            <column name="keep_alive" type="integer" defaultValue="1">
                 <constraints nullable="false" />
             </column>
 
-            <column name="encapsulated" type="bit">
-                <constraints nullable="false" />
+            <column name="encapsulated" type="integer" defaultValue="0">
+                <constraints nullable="true" />
             </column>
 
-            <column name="connect_mode" type="integer">
+            <column name="connect_mode" type="integer" defaultValue="1">
                 <constraints nullable="false" />
             </column>
 
             <column name="connect_mode_name" type="varchar(100)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
 
 
@@ -101,7 +101,7 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="create_time" type="datetime">
+            <column name="create_time" type="datetime" defaultValue="now()">
                 <constraints nullable="false" />
             </column>
 
@@ -109,7 +109,7 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="update_time" type="datetime">
+            <column name="update_time" type="datetime" defaultValue="now()">
                 <constraints nullable="false" />
             </column>
 
@@ -118,6 +118,13 @@
         <dropDefaultValue tableName="com_point" columnName="create_time" columnDataType="datetime"/>
         <dropDefaultValue tableName="com_point" columnName="update_time" columnDataType="datetime"/>
 
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/com_point.csv"
+                  separator=";"
+                  tableName="com_point">
+            <!--<column name="activated" type="boolean"/>
+            <column name="created_date" type="timestamp"/>-->
+        </loadData>
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>
